@@ -1,7 +1,14 @@
-print("Starting")
+print("Start")
 
-local function run()
-    fs.delete("setup.lua")
-    shell.run("wget https://raw.githubusercontent.com/dadalev/CC_villagers/main/setup.lua")
-    shell.run("setup.lua")
+print("Enter file name:")
+local fileName = read("*")
+
+local function runGit()
+    fs.delete(fileName + ".lua")
+    shell.run("wget https://github.com/dadalev/CC_villagers/raw/main/" + fileName + ".lua")
+    shell.run(fileName + ".lua")
 end
+
+runGit()
+
+print("End")
